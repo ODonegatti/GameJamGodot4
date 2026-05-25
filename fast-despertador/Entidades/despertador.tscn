@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://3mu1la5b62s0"]
+
+[ext_resource type="Texture2D" uid="uid://domj0vu6wxpo0" path="res://icon.svg" id="1_s6e52"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxdj2"]
+size = Vector2(37, 39)
+
+[node name="Despertador" type="Area2D" unique_id=1154436889]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=843314192]
+shape = SubResource("RectangleShape2D_lxdj2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=139661575]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_s6e52")

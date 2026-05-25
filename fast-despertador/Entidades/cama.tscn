@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b32q4fj72mpvd"]
+
+[ext_resource type="Texture2D" uid="uid://domj0vu6wxpo0" path="res://icon.svg" id="1_uohwv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_losd2"]
+size = Vector2(123, 251)
+
+[node name="Cama" type="Area2D" unique_id=568248307 groups=["cama"]]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1248258614]
+scale = Vector2(1, 2)
+texture = ExtResource("1_uohwv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=930388871]
+shape = SubResource("RectangleShape2D_losd2")

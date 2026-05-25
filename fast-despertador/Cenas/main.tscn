@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://kbgfsdv4hcex"]
+
+[ext_resource type="Script" uid="uid://c72qxwkwqj38n" path="res://Cenas/quarto.gd" id="1_ruij7"]
+[ext_resource type="PackedScene" uid="uid://5xdw1in1b6kw" path="res://Entidades/player.tscn" id="1_x3hk2"]
+[ext_resource type="PackedScene" uid="uid://3mu1la5b62s0" path="res://Entidades/despertador.tscn" id="3_lb8y5"]
+
+[node name="Main" type="Node2D" unique_id=1808889044]
+
+[node name="Quarto" type="Node2D" parent="." unique_id=744375203]
+script = ExtResource("1_ruij7")
+object_scene = ExtResource("3_lb8y5")
+
+[node name="Player" parent="." unique_id=398665468 instance=ExtResource("1_x3hk2")]
