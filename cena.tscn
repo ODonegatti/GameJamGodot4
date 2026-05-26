@@ -18,7 +18,7 @@ func _move():
 		Input.get_axis(\"esquerda\", \"direita\"),
 		Input.get_axis(\"cima\", \"baixo\")
 	)
-	#velocity.x = lerp
+	# velocity.x = lerp
 	velocity = _direction.normalized() * move_speed
 	move_and_slide()
 "
