@@ -2,12 +2,64 @@
 
 [ext_resource type="Script" uid="uid://c72qxwkwqj38n" path="res://Cenas/quarto.gd" id="1_ruij7"]
 [ext_resource type="PackedScene" uid="uid://5xdw1in1b6kw" path="res://Entidades/player.tscn" id="1_x3hk2"]
-[ext_resource type="PackedScene" uid="uid://3mu1la5b62s0" path="res://Entidades/despertador.tscn" id="3_lb8y5"]
+[ext_resource type="PackedScene" uid="uid://cgn2gea16uusb" path="res://Entidades/ObjetosDoQuarto/armario.tscn" id="2_qns0q"]
+[ext_resource type="PackedScene" uid="uid://b32q4fj72mpvd" path="res://Entidades/ObjetosDoQuarto/cama.tscn" id="3_ja1os"]
+[ext_resource type="PackedScene" uid="uid://3mu1la5b62s0" path="res://Entidades/ObjetosDoQuarto/despertador.tscn" id="3_lb8y5"]
+[ext_resource type="PackedScene" uid="uid://cco24s8lbvepp" path="res://Entidades/ObjetosDoQuarto/bola.tscn" id="3_n00j1"]
+[ext_resource type="PackedScene" uid="uid://cqww1f7n2qpnf" path="res://Entidades/ObjetosDoQuarto/bau.tscn" id="4_x6di6"]
+[ext_resource type="PackedScene" uid="uid://bs6xyhjowynwc" path="res://Entidades/ObjetosDoQuarto/puff.tscn" id="5_btbr3"]
+[ext_resource type="PackedScene" uid="uid://bm5ojl0ie4xdd" path="res://Entidades/ObjetosDoQuarto/travesseiro.tscn" id="5_qns0q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btbr3"]
+size = Vector2(11.687508, 1156.5)
 
 [node name="Main" type="Node2D" unique_id=1808889044]
 
-[node name="Quarto" type="Node2D" parent="." unique_id=744375203]
+[node name="Quarto" type="Node2D" parent="." unique_id=744375203 node_paths=PackedStringArray("pillow") groups=["quarto"]]
+position = Vector2(64, 64)
 script = ExtResource("1_ruij7")
-object_scene = ExtResource("3_lb8y5")
+wardrobe = ExtResource("2_qns0q")
+ball = ExtResource("3_n00j1")
+chest = ExtResource("4_x6di6")
+puff = ExtResource("5_btbr3")
+bed = ExtResource("3_ja1os")
+alarm = ExtResource("3_lb8y5")
+pillow = NodePath("../Travesseiro")
 
-[node name="Player" parent="." unique_id=398665468 instance=ExtResource("1_x3hk2")]
+[node name="Player" parent="." unique_id=398665468 node_paths=PackedStringArray("quarto") instance=ExtResource("1_x3hk2")]
+position = Vector2(985, 238)
+quarto = NodePath("../Quarto")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=253383055]
+position = Vector2(576, 320)
+
+[node name="Travesseiro" parent="." unique_id=575628377 instance=ExtResource("5_qns0q")]
+position = Vector2(-611, 23)
+
+[node name="ParedesInvisiveis" type="Node2D" parent="." unique_id=284885319]
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="ParedesInvisiveis" unique_id=1357972318]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedesInvisiveis/StaticBody2D4" unique_id=420805391]
+position = Vector2(1153, 326)
+shape = SubResource("RectangleShape2D_btbr3")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="ParedesInvisiveis" unique_id=48435777]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedesInvisiveis/StaticBody2D3" unique_id=1513641614]
+position = Vector2(570.75, 642.25)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_btbr3")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ParedesInvisiveis" unique_id=1270742429]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedesInvisiveis/StaticBody2D2" unique_id=1036871444]
+position = Vector2(568, -6)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_btbr3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ParedesInvisiveis" unique_id=1538430964]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedesInvisiveis/StaticBody2D" unique_id=467640525]
+position = Vector2(-5.5, 320.5)
+shape = SubResource("RectangleShape2D_btbr3")

@@ -26,4 +26,5 @@ metadata/_edit_group_ = true
 sprite_frames = SubResource("SpriteFrames_ocv5n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=557920248]
+scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_q7xc8")
