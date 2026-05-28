@@ -1,11 +1,26 @@
 [gd_scene format=3 uid="uid://cqww1f7n2qpnf"]
 
-[ext_resource type="Texture2D" uid="uid://domj0vu6wxpo0" path="res://icon.svg" id="1_vq85b"]
+[ext_resource type="Texture2D" uid="uid://ehlowqgajgo2" path="res://New Piskel (3).png" id="1_x6unx"]
+[ext_resource type="Script" uid="uid://oq08e3avkjj8" path="res://Scripts/chest.gd" id="2_5mbbj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcral"]
 size = Vector2(124, 121)
 
-[node name="bau" type="StaticBody2D" unique_id=1041997648]
+[sub_resource type="SpriteFrames" id="SpriteFrames_j2n5i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x6unx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1bqh"]
+size = Vector2(150.00009, 142.50008)
+
+[node name="bau" type="StaticBody2D" unique_id=740080511]
 scale = Vector2(0.8, 0.8)
 metadata/_edit_group_ = true
 
@@ -14,5 +29,15 @@ z_index = 1
 scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_hcral")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1897312704]
-texture = ExtResource("1_vq85b")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=745132908]
+sprite_frames = SubResource("SpriteFrames_j2n5i")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1479960460 node_paths=PackedStringArray("chest")]
+script = ExtResource("2_5mbbj")
+chest = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=988409981]
+scale = Vector2(0.9999992, 0.9999992)
+shape = SubResource("RectangleShape2D_v1bqh")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

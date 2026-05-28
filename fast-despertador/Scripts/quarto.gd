@@ -12,16 +12,25 @@ var plays = 0
 @export var ball: PackedScene
 @export var chest: PackedScene
 @export var puff: PackedScene
+@export var mimic: PackedScene
 
 @export var bed: PackedScene
 @export var alarm: PackedScene
 @export var pillow: Area2D
 
+@export var score: Label
+
 var player: CharacterBody2D
 var objetos: Array[StaticBody2D]= []
+var enemies: Array[CharacterBody2D]
+
+
 
 func _physics_process(delta: float) -> void:
-	pass
+	if player:
+		var pontuacao = player.score
+	
+		score.text = str(pontuacao)
 
 func _ready():
 	
@@ -38,7 +47,7 @@ func start():
 	
 	player.global_position = pillow.global_position
 	
-	clear()
+	clear_entities()
 
 	# Gera todas as posições possíveis no grid
 	for x in range(grid_width):
@@ -47,7 +56,7 @@ func start():
 			
 	#Gerador de rota simples
 	var caminho = []
-	var posicao = Vector2.ZERO
+	var posicao = Vector2(1, 0)
 	
 	
 	while true :
@@ -87,6 +96,9 @@ func start():
 		elif pos in caminho or pos == Vector2(1, 0) or pos == Vector2(1, 1):
 			pass
 			
+		elif pos == Vector2(0, 0) or pos == Vector2(0,1):
+			pass
+			
 		else:
 			var intRng = randi() % 10
 			if intRng in [0, 1, 2]:
@@ -104,11 +116,17 @@ func start():
 				add_child(obj4)
 				objetos.append(obj4)
 				
-			elif intRng in [7, 8]:
+			elif intRng == 7:
 				var obj4 = chest.instantiate()
 				obj4.position = pos * cell_size
 				add_child(obj4)
 				objetos.append(obj4)
+				
+			elif intRng == 8 and pos != Vector2(0, 1):
+				var obj4 = mimic.instantiate()
+				obj4.position = pos * cell_size
+				add_child(obj4)
+				enemies.append(obj4)
 			
 			elif intRng == 9:
 				var obj4 = puff.instantiate()
@@ -116,7 +134,7 @@ func start():
 				add_child(obj4)	
 				objetos.append(obj4)		 
 	
-func clear():
+func clear_entities():
 	
 	
 	var quantidade_objetos = 0
@@ -126,3 +144,11 @@ func clear():
 	for i in range(quantidade_objetos):
 		objetos[i].queue_free()
 	objetos.clear()
+	
+	var quantidade_enemies = 0
+	for i in enemies:
+		quantidade_enemies += 1
+	
+	for i in range(quantidade_enemies):
+		enemies[i].queue_free()
+	enemies.clear()

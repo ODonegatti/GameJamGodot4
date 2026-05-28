@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://p18nxi18rvu"]
+
+[node name="Score" type="Label" unique_id=14211412]
+offset_left = 910.0
+offset_top = 5.0
+offset_right = 1146.0
+offset_bottom = 28.0
+horizontal_alignment = 2

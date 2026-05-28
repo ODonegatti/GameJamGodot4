@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b32q4fj72mpvd"]
 
-[ext_resource type="Texture2D" uid="uid://domj0vu6wxpo0" path="res://icon.svg" id="1_uohwv"]
+[ext_resource type="Texture2D" uid="uid://cub21iegtwafo" path="res://New Piskel (5).png" id="1_tnvne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_losd2"]
 size = Vector2(123, 129)
@@ -9,9 +9,9 @@ size = Vector2(123, 129)
 z_index = 3
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1248258614]
-texture = ExtResource("1_uohwv")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=930388871]
 scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_losd2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=719969193]
+texture = ExtResource("1_tnvne")

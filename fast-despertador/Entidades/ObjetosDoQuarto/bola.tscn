@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nes3p"]
 size = Vector2(126, 127)
 
-[node name="Bola" type="StaticBody2D" unique_id=712876791]
+[node name="Bola" type="StaticBody2D" unique_id=776728521]
 scale = Vector2(0.5, 0.5)
 metadata/_edit_group_ = true
 

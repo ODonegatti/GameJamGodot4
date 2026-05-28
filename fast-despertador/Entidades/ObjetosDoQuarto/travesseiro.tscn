@@ -6,6 +6,7 @@
 size = Vector2(125, 126)
 
 [node name="Travesseiro" type="Area2D" unique_id=575628377 groups=["travesseiro"]]
+z_index = -2
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1382294626]

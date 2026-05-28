@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kbgfsdv4hcex"]
 
-[ext_resource type="Script" uid="uid://c72qxwkwqj38n" path="res://Cenas/quarto.gd" id="1_ruij7"]
+[ext_resource type="Script" uid="uid://c72qxwkwqj38n" path="res://Scripts/quarto.gd" id="1_ruij7"]
 [ext_resource type="PackedScene" uid="uid://5xdw1in1b6kw" path="res://Entidades/player.tscn" id="1_x3hk2"]
 [ext_resource type="PackedScene" uid="uid://cgn2gea16uusb" path="res://Entidades/ObjetosDoQuarto/armario.tscn" id="2_qns0q"]
 [ext_resource type="PackedScene" uid="uid://b32q4fj72mpvd" path="res://Entidades/ObjetosDoQuarto/cama.tscn" id="3_ja1os"]
@@ -9,22 +9,26 @@
 [ext_resource type="PackedScene" uid="uid://cqww1f7n2qpnf" path="res://Entidades/ObjetosDoQuarto/bau.tscn" id="4_x6di6"]
 [ext_resource type="PackedScene" uid="uid://bs6xyhjowynwc" path="res://Entidades/ObjetosDoQuarto/puff.tscn" id="5_btbr3"]
 [ext_resource type="PackedScene" uid="uid://bm5ojl0ie4xdd" path="res://Entidades/ObjetosDoQuarto/travesseiro.tscn" id="5_qns0q"]
+[ext_resource type="PackedScene" uid="uid://n71fkc63xxts" path="res://Entidades/mimic.tscn" id="6_jjrtw"]
+[ext_resource type="PackedScene" uid="uid://p18nxi18rvu" path="res://UI/score.tscn" id="10_7yi6i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btbr3"]
 size = Vector2(11.687508, 1156.5)
 
 [node name="Main" type="Node2D" unique_id=1808889044]
 
-[node name="Quarto" type="Node2D" parent="." unique_id=744375203 node_paths=PackedStringArray("pillow") groups=["quarto"]]
+[node name="Quarto" type="Node2D" parent="." unique_id=744375203 node_paths=PackedStringArray("pillow", "score") groups=["quarto"]]
 position = Vector2(64, 64)
 script = ExtResource("1_ruij7")
 wardrobe = ExtResource("2_qns0q")
 ball = ExtResource("3_n00j1")
 chest = ExtResource("4_x6di6")
 puff = ExtResource("5_btbr3")
+mimic = ExtResource("6_jjrtw")
 bed = ExtResource("3_ja1os")
 alarm = ExtResource("3_lb8y5")
 pillow = NodePath("../Travesseiro")
+score = NodePath("../Score")
 
 [node name="Player" parent="." unique_id=398665468 node_paths=PackedStringArray("quarto") instance=ExtResource("1_x3hk2")]
 position = Vector2(985, 238)
@@ -63,3 +67,5 @@ shape = SubResource("RectangleShape2D_btbr3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedesInvisiveis/StaticBody2D" unique_id=467640525]
 position = Vector2(-5.5, 320.5)
 shape = SubResource("RectangleShape2D_btbr3")
+
+[node name="Score" parent="." unique_id=14211412 instance=ExtResource("10_7yi6i")]

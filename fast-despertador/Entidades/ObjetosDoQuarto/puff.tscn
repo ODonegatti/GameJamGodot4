@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uyem"]
 size = Vector2(125, 122)
 
-[node name="Puff" type="StaticBody2D" unique_id=2145903224]
+[node name="Puff" type="StaticBody2D" unique_id=722174645]
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=394067125]

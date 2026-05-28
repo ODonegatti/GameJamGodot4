@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bq3il"]
 size = Vector2(129, 130)
 
-[node name="Armario" type="StaticBody2D" unique_id=32615705]
+[node name="Armario" type="StaticBody2D" unique_id=2043263946]
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1975627751]
