@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://3mu1la5b62s0"]
 
 [ext_resource type="Script" uid="uid://b7wr4jdko8wjh" path="res://Scripts/despertador.gd" id="1_eiwud"]
-[ext_resource type="Texture2D" uid="uid://domj0vu6wxpo0" path="res://icon.svg" id="1_s6e52"]
+[ext_resource type="Texture2D" uid="uid://b6f1ls7ij5hq2" path="res://Sprites/New Piskel (7).png" id="2_eiwud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxdj2"]
 size = Vector2(37, 39)
@@ -11,10 +11,13 @@ script = ExtResource("1_eiwud")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=843314192]
+position = Vector2(63, 69)
 shape = SubResource("RectangleShape2D_lxdj2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=139661575]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_s6e52")
+position = Vector2(43, 49.000004)
+scale = Vector2(0.60156256, 0.6171875)
+texture = ExtResource("2_eiwud")
+centered = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

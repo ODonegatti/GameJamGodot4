@@ -10,14 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://bs6xyhjowynwc" path="res://Entidades/ObjetosDoQuarto/puff.tscn" id="5_btbr3"]
 [ext_resource type="PackedScene" uid="uid://bm5ojl0ie4xdd" path="res://Entidades/ObjetosDoQuarto/travesseiro.tscn" id="5_qns0q"]
 [ext_resource type="PackedScene" uid="uid://n71fkc63xxts" path="res://Entidades/mimic.tscn" id="6_jjrtw"]
+[ext_resource type="PackedScene" uid="uid://o3bt30wsuxy6" path="res://Sprites/mimic_jump_scare.tscn" id="7_me8gh"]
 [ext_resource type="PackedScene" uid="uid://p18nxi18rvu" path="res://UI/score.tscn" id="10_7yi6i"]
+[ext_resource type="Texture2D" uid="uid://npgqv17o0vvg" path="res://Sprites/comet-1780313685436-kpr5p10-removebg-preview.png" id="12_irhh0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btbr3"]
 size = Vector2(11.687508, 1156.5)
 
 [node name="Main" type="Node2D" unique_id=1808889044]
 
-[node name="Quarto" type="Node2D" parent="." unique_id=744375203 node_paths=PackedStringArray("pillow", "score") groups=["quarto"]]
+[node name="Quarto" type="Node2D" parent="." unique_id=744375203 node_paths=PackedStringArray("alarm", "pillow", "score") groups=["quarto"]]
 position = Vector2(64, 64)
 script = ExtResource("1_ruij7")
 wardrobe = ExtResource("2_qns0q")
@@ -25,13 +27,15 @@ ball = ExtResource("3_n00j1")
 chest = ExtResource("4_x6di6")
 puff = ExtResource("5_btbr3")
 mimic = ExtResource("6_jjrtw")
+mimic_jumpscare = ExtResource("7_me8gh")
 bed = ExtResource("3_ja1os")
-alarm = ExtResource("3_lb8y5")
+alarm = NodePath("../Despertador")
 pillow = NodePath("../Travesseiro")
 score = NodePath("../Score")
 
 [node name="Player" parent="." unique_id=398665468 node_paths=PackedStringArray("quarto") instance=ExtResource("1_x3hk2")]
-position = Vector2(985, 238)
+position = Vector2(-343, 97)
+speed = 500.0
 quarto = NodePath("../Quarto")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=253383055]
@@ -45,27 +49,43 @@ position = Vector2(-611, 23)
 [node name="StaticBody2D4" type="StaticBody2D" parent="ParedesInvisiveis" unique_id=1357972318]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedesInvisiveis/StaticBody2D4" unique_id=420805391]
-position = Vector2(1153, 326)
+position = Vector2(1162, 334)
 shape = SubResource("RectangleShape2D_btbr3")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="ParedesInvisiveis" unique_id=48435777]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedesInvisiveis/StaticBody2D3" unique_id=1513641614]
-position = Vector2(570.75, 642.25)
+position = Vector2(576, 655)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_btbr3")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="ParedesInvisiveis" unique_id=1270742429]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedesInvisiveis/StaticBody2D2" unique_id=1036871444]
-position = Vector2(568, -6)
+position = Vector2(579, -10)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_btbr3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ParedesInvisiveis" unique_id=1538430964]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedesInvisiveis/StaticBody2D" unique_id=467640525]
-position = Vector2(-5.5, 320.5)
+position = Vector2(-13, 321)
 shape = SubResource("RectangleShape2D_btbr3")
 
 [node name="Score" parent="." unique_id=14211412 instance=ExtResource("10_7yi6i")]
+
+[node name="Despertador" parent="." unique_id=1154436889 instance=ExtResource("3_lb8y5")]
+position = Vector2(-329.4917, 177.53558)
+
+[node name="Label" type="Label" parent="." unique_id=1011918445]
+offset_left = 968.0
+offset_top = 615.0
+offset_right = 1145.0
+offset_bottom = 638.0
+text = "Aperte (R) para resetar"
+
+[node name="Comet1780313685436Kpr5p10RemovebgPreview" type="Sprite2D" parent="." unique_id=1796331436]
+z_index = -10
+position = Vector2(571.00006, 276)
+scale = Vector2(3.6877503, 2.2825)
+texture = ExtResource("12_irhh0")

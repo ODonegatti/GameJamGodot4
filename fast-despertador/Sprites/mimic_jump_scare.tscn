@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://o3bt30wsuxy6"]
+
+[ext_resource type="Texture2D" uid="uid://sj2tt785nehq" path="res://Sprites/Gemini_Generated_Image_xhk03bxhk03bxhk0.png" id="1_dwfja"]
+
+[node name="MimicJumpScare" type="Sprite2D" unique_id=432381304]
+z_index = 100
+position = Vector2(-27, 6)
+scale = Vector2(1.1523438, 0.62890625)
+texture = ExtResource("1_dwfja")

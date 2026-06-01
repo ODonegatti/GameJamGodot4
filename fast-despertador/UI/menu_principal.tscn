@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://fo7jexsm62b2"]
 
-[ext_resource type="Texture2D" uid="uid://domj0vu6wxpo0" path="res://icon.svg" id="1_mb63o"]
+[ext_resource type="Texture2D" uid="uid://cqih5ug0bjaqd" path="res://Sprites/Gemini_Generated_Image_6nept06nept06nep.png" id="1_mb63o"]
 
 [node name="MenuPrincipal" type="Control" unique_id=870085717]
 layout_mode = 3
@@ -13,9 +13,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1585715990]
+z_index = -6
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -681.0
+offset_top = -397.0
+offset_right = 695.0
+offset_bottom = 371.0
 texture = ExtResource("1_mb63o")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=479853302]

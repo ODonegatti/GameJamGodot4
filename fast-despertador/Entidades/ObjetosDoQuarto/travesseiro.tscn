@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bm5ojl0ie4xdd"]
 
-[ext_resource type="Texture2D" uid="uid://domj0vu6wxpo0" path="res://icon.svg" id="1_xd50d"]
+[ext_resource type="Texture2D" uid="uid://di080qfoxo53c" path="res://Sprites/New Piskel (10).png" id="1_uhawo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wp68"]
 size = Vector2(125, 126)
@@ -10,7 +10,9 @@ z_index = -2
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1382294626]
-texture = ExtResource("1_xd50d")
+texture = ExtResource("1_uhawo")
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1459979108]
+position = Vector2(64, 65)
 shape = SubResource("RectangleShape2D_8wp68")

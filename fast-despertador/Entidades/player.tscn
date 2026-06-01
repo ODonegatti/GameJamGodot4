@@ -1,16 +1,65 @@
 [gd_scene format=3 uid="uid://5xdw1in1b6kw"]
 
 [ext_resource type="Script" uid="uid://7accby67y3pl" path="res://Scripts/player.gd" id="1_1mtym"]
-[ext_resource type="Texture2D" uid="uid://domj0vu6wxpo0" path="res://icon.svg" id="2_vcobw"]
+[ext_resource type="Texture2D" uid="uid://cgpdgc4swjmk7" path="res://New Piskel (6).png" id="2_1mtym"]
+[ext_resource type="Texture2D" uid="uid://tpwx58fb4usp" path="res://Sprites/New Piskel (8).png" id="3_vcobw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocv5n"]
+atlas = ExtResource("3_vcobw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7xc8"]
+atlas = ExtResource("3_vcobw")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2waec"]
+atlas = ExtResource("3_vcobw")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ftqi"]
+atlas = ExtResource("3_vcobw")
+region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ocv5n"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_vcobw")
+"texture": ExtResource("2_1mtym")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocv5n")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7xc8")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2waec")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ftqi")
+}],
+"loop": true,
+"name": &"up",
 "speed": 5.0
 }]
 
@@ -20,11 +69,15 @@ size = Vector2(123, 128)
 [node name="Player" type="CharacterBody2D" unique_id=398665468 groups=["player"]]
 z_index = 5
 script = ExtResource("1_1mtym")
+speed = null
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1742057806]
 sprite_frames = SubResource("SpriteFrames_ocv5n")
+animation = &"up"
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=557920248]
+position = Vector2(64, 65)
 scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_q7xc8")

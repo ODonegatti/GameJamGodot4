@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://n71fkc63xxts"]
 
-[ext_resource type="Texture2D" uid="uid://scftqn8braet" path="res://New Piskel (2).png" id="1_802so"]
+[ext_resource type="Texture2D" uid="uid://o1i7urem7i3i" path="res://Sprites/New Piskel (15).png" id="1_802so"]
 [ext_resource type="Script" uid="uid://dlhwwvr8sdpxt" path="res://Scripts/mimic.gd" id="1_qiadu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2p2t5"]

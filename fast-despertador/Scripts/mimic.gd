@@ -17,5 +17,5 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if player:
 		if body == player:
-			body.score -= 10
-			print("Morreu") # Replace with function body.
+			player.life -= 10000
+			print("Morreu")
