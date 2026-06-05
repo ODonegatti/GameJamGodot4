@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://fo7jexsm62b2"]
 
 [ext_resource type="Texture2D" uid="uid://cqih5ug0bjaqd" path="res://Sprites/Gemini_Generated_Image_6nept06nept06nep.png" id="1_mb63o"]
+[ext_resource type="Script" uid="uid://dd0hf5rfm27vx" path="res://Scripts/menu_principal.gd" id="1_x51cq"]
+[ext_resource type="AudioStream" uid="uid://33vp51sk5auw" path="res://Audio/atlasaudio-horror-ambience-512255.mp3" id="3_mtw6q"]
 
 [node name="MenuPrincipal" type="Control" unique_id=870085717]
 layout_mode = 3
@@ -11,29 +13,42 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_x51cq")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1585715990]
 z_index = -6
-layout_mode = 0
-offset_left = -681.0
-offset_top = -397.0
-offset_right = 695.0
-offset_bottom = 371.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_mb63o")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=479853302]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/separation = 20
+alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=607992701]
 layout_mode = 2
+text = "Mimic Alarm"
+horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=1956725775]
+[node name="Jogar" type="Button" parent="VBoxContainer" unique_id=1956725775]
 layout_mode = 2
+text = "Jogar"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1180700301]
+[node name="Configuracoes" type="Button" parent="VBoxContainer" unique_id=1180700301]
 layout_mode = 2
+text = "Configurações"
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=257029041]
+[node name="Sair" type="Button" parent="VBoxContainer" unique_id=257029041]
 layout_mode = 2
+text = "Sair"
+
+[node name="MusicaMenu" type="AudioStreamPlayer2D" parent="." unique_id=293819502]
+stream = ExtResource("3_mtw6q")
+autoplay = true

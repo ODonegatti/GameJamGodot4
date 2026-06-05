@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://o3bt30wsuxy6" path="res://Sprites/mimic_jump_scare.tscn" id="7_me8gh"]
 [ext_resource type="PackedScene" uid="uid://p18nxi18rvu" path="res://UI/score.tscn" id="10_7yi6i"]
 [ext_resource type="Texture2D" uid="uid://npgqv17o0vvg" path="res://Sprites/comet-1780313685436-kpr5p10-removebg-preview.png" id="12_irhh0"]
+[ext_resource type="AudioStream" uid="uid://bjfrli7wtem1q" path="res://Audio/atlasaudio-horror-thriller-519592.mp3" id="14_3ea3k"]
+[ext_resource type="AudioStream" uid="uid://bts0uoaj70xf1" path="res://Audio/alarme-samsung.mp3" id="15_xaxpv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btbr3"]
 size = Vector2(11.687508, 1156.5)
@@ -31,11 +33,27 @@ mimic_jumpscare = ExtResource("7_me8gh")
 bed = ExtResource("3_ja1os")
 alarm = NodePath("../Despertador")
 pillow = NodePath("../Travesseiro")
-score = NodePath("../Score")
+score = NodePath("../CanvasLayer/Score")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Quarto" unique_id=809137814]
+position = Vector2(-64, -64)
+color = Color(0, 0, 0.003921569, 1)
+
+[node name="Musica" type="Node2D" parent="Quarto" unique_id=629244722]
+
+[node name="MusicaJogo" type="AudioStreamPlayer2D" parent="Quarto/Musica" unique_id=538373840]
+position = Vector2(-64, -64)
+stream = ExtResource("14_3ea3k")
+autoplay = true
+
+[node name="MusicaAlarme" type="AudioStreamPlayer2D" parent="Quarto/Musica" unique_id=1515186146]
+position = Vector2(-64, -64)
+stream = ExtResource("15_xaxpv")
+pitch_scale = 0.5
+autoplay = true
 
 [node name="Player" parent="." unique_id=398665468 node_paths=PackedStringArray("quarto") instance=ExtResource("1_x3hk2")]
 position = Vector2(-343, 97)
-speed = 500.0
 quarto = NodePath("../Quarto")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=253383055]
@@ -72,20 +90,22 @@ shape = SubResource("RectangleShape2D_btbr3")
 position = Vector2(-13, 321)
 shape = SubResource("RectangleShape2D_btbr3")
 
-[node name="Score" parent="." unique_id=14211412 instance=ExtResource("10_7yi6i")]
-
 [node name="Despertador" parent="." unique_id=1154436889 instance=ExtResource("3_lb8y5")]
 position = Vector2(-329.4917, 177.53558)
-
-[node name="Label" type="Label" parent="." unique_id=1011918445]
-offset_left = 968.0
-offset_top = 615.0
-offset_right = 1145.0
-offset_bottom = 638.0
-text = "Aperte (R) para resetar"
 
 [node name="Comet1780313685436Kpr5p10RemovebgPreview" type="Sprite2D" parent="." unique_id=1796331436]
 z_index = -10
 position = Vector2(571.00006, 276)
 scale = Vector2(3.6877503, 2.2825)
 texture = ExtResource("12_irhh0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=64015659]
+
+[node name="Score" parent="CanvasLayer" unique_id=14211412 instance=ExtResource("10_7yi6i")]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1011918445]
+offset_left = 968.0
+offset_top = 615.0
+offset_right = 1145.0
+offset_bottom = 638.0
+text = "Aperte (R) para resetar"

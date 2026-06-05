@@ -47,6 +47,7 @@ var enemies: Array[CharacterBody2D] = []
 var jumpscares: Array[Sprite2D]
 
 
+
  
  
  
@@ -69,11 +70,14 @@ func start():
 	plays += 1
 	player.can_move = true
 	player.life = 100
+	$CanvasModulate.visible = true
+	$Musica/MusicaAlarme.play()
+	$Musica/MusicaJogo.play()
 	
 	clear_entities()
 	var position_bed = randi() % 8
 	var position_alarm = randi() % 10
-	while(position_alarm == position_bed):
+	while(position_alarm == position_bed or positions_alarm[position_alarm].x == positions_bed_pillow[position_bed][1].x):
 		position_alarm = randi() % 10
 
  
@@ -199,8 +203,13 @@ func start():
 			var obj = puff.instantiate()
 			obj.position = pos * cell_size
 			add_child(obj)
-			objetos.append(obj)		
+			objetos.append(obj)
 			
+			
+					
+	print("Caminho:")
+	print(caminho)
+	
 
 func clear_entities():
 
@@ -235,4 +244,9 @@ func _on_player_morreu():
 		jumpscare.global_position = get_viewport().get_visible_rect().size / 2
 		player.can_move = false
 		jumpscares.append(jumpscare)
+		$CanvasModulate.visible = false
+		$Musica/MusicaAlarme.stop()
+		$Musica/MusicaJogo.stop()
+		
+		
 	
